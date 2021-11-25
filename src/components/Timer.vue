@@ -1,10 +1,10 @@
 <template>
   <div class="timer" @click="onClicked">
-    <div class="timer__minutes">
+    <div class="timer__numbers">
       {{ String(Math.floor(seconds / 60)).padStart(2, "0") }}
     </div>
     <div class="timer__colon">:</div>
-    <div class="timer__seconds">
+    <div class="timer__numbers">
       {{ String(seconds % 60).padStart(2, "0") }}
     </div>
   </div>
@@ -63,13 +63,23 @@ export default defineComponent({
 });
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .timer {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
 
   cursor: pointer;
+}
+
+.timer__numbers {
+  font-size: 7rem;
+  color: var(--highlight-color);
+}
+
+.timer__colon {
+  font-size: 5rem;
+  color: var(--text-color);
 }
 </style>
