@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <Timer :startSeconds="25 * 60" />
+    <Timer :startSeconds="25 * 60" @timePassed="onTimePassed()" />
   </div>
 </template>
 
@@ -12,6 +12,11 @@ import Timer from "../components/Timer.vue";
 export default defineComponent({
   components: {
     Timer,
+  },
+  methods: {
+    onTimePassed() {
+      console.log("time passed!");
+    },
   },
 });
 </script>
